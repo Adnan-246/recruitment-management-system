@@ -1,0 +1,49 @@
+{
+  "name": "RWD-Table-Patterns",
+  "description": "This is an awesome solution for responsive tables with complex data.",
+  "version": "6.0.2",
+  "keywords": [
+    "RWD",
+    "responsive",
+    "tables",
+    "mobile-first",
+    "bootstrap"
+  ],
+  "homepage": "http://gergeo.se/RWD-Table-Patterns",
+  "authors": [
+    "Nadan Gergeo <nadan@blimp.se> (www.blimp.se)",
+    "Lucas Wiener <lucas@blimp.se> (www.blimp.se)",
+    "Maggie Wachs (www.filamentgroup.com)"
+  ],
+  "contributors": [
+    {
+      "name": "Ryan Hafer",
+      "email": "hafer.ryan@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nadangergeo/RWD-Table-Patterns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nadangergeo/RWD-Table-Patterns/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/nadangergeo/RWD-Table-Patterns/blob/master/LICENSE-MIT"
+  },
+  "main": "dist/js/rwd-table",
+  "devDependencies": {
+    "bootstrap": "^5.2.0-beta1",
+    "grunt": "^1.0.2",
+    "grunt-banner": "^0.6.0",
+    "grunt-bump": "^0.8.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "load-grunt-tasks": "^4.0.0"
+  }
+}

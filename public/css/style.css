@@ -1,0 +1,51 @@
+
+table.dataTable tr.group-end td {
+  text-align: right;
+  font-weight: normal;
+}
+/*  */
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* .bg {
+  /* The image used 
+  background-image: url("");
+
+  /* Full height 
+  height: 100%; 
+
+  /* Center and scale the image nicely 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+body{
+	/* padding-top:50px; */
+	background-color:#34495e;
+}
+
+tr.group,
+tr.group:hover {
+    background-color: #174478 !important;
+    color: white;
+    mask-image: url('/assets/images/plus.gif');
+}
+
+.p{
+  padding-top: 0%;
+}
+
+#example_length{
+  display: none;
+}
+#example_filter{
+  display: none;
+}
+
+
+

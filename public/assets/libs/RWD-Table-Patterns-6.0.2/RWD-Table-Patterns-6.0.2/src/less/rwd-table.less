@@ -1,0 +1,471 @@
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+
+@zindex-stickyHeader:      990;
+
+:root {
+  --responsive-table-dropdown-hover-bg: #f2f2f2;
+}
+
+
+// The dropdown menu (ul)
+// ----------------------
+.dropdown-menu {
+    // Checkbox-rows within the dropdown menu
+    > li.checkbox-row {
+      padding: 8px 16px;
+    }
+
+    // links and checkbox-rows within the dropdown menu
+    li.checkbox-row {
+      display: block;
+      display: flex;
+      align-items: center;
+      clear: both;
+      font-weight: normal;
+      line-height: calc(var(--bs-body-line-height) * 1rem);
+      color: var(--bs-link-color);
+      white-space: nowrap;
+
+      label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: 0.5em;
+        color: var(--bs-dark);
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+        
+      &, input, label {
+          &:hover {
+            cursor: pointer;
+          }
+      }
+    }
+
+    // Hover/Focus state for checkbox-rows
+    .no-touch & > .checkbox-row {
+      &:hover,
+      &:active {
+        text-decoration: none;
+        background-color: var(--responsive-table-dropdown-hover-bg);
+      }
+    }
+}
+
+//
+// Tables
+// --------------------------------------------------
+
+
+.btn-toolbar {
+    margin-bottom: calc(var(--bs-body-line-height) * 1rem);
+
+    .btn-outline-primary.btn-primary {
+      color: var(--bs-white)
+    }
+}
+
+.lt-ie8 {
+   .btn-toolbar {
+       display: none;
+   } 
+}
+
+
+// Customize Bootstrap's .table-responsive to give it a border-radius and bigger bottom margin.
+.table-responsive {
+  border-radius: var(--bs-border-radius);
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+
+  // Remove bottom margin
+  > .table {
+    margin-bottom: 0;
+  }
+
+  // Special overrides for the bordered tables
+  > .table-bordered {
+    border: 0;
+
+    thead tr:last-child {
+      border-bottom-width: 2px;
+    }
+
+    // Nuke the appropriate borders so that the parent can handle them
+    > thead,
+    > tbody,
+    > tfoot {
+      border-color: var(--bs-border-color);
+
+      > th,
+      > td {
+        border-color: var(--bs-border-color);
+      }
+
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+
+    // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+    // chances are there will be only one `tr` in a `thead` and that would
+    // remove the border altogether.
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > th,
+        > td {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// Unlike Bootstrap's original .table-responsive, this is applied for all widths. (i.e. NOT only applied <768px)
+// Other diffs:
+// - Small border radius
+// - Bigger bottom margin
+.table-responsive[data-pattern="priority-columns"] {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border-radius: var(--bs-border-radius);
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+    -webkit-overflow-scrolling: touch;
+
+    // Remove bottom margin
+    > .table {
+      margin-bottom: 0;
+    }
+    // Ensure the content doesn't wrap
+    > .table-tighten {
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          border-color: var(--bs-border-color);
+
+          th, td {
+            border-color: var(--bs-border-color);
+          }
+
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+}
+
+// for when the sticky table header is using the postition:absolute solution.
+.table-responsive.absolute-solution {
+  position: relative;
+}
+    
+// Column priority
+.mq.js .table-responsive[data-pattern="priority-columns"],
+.mq.js.lt-ie10 .sticky-table-header {
+    
+    th[data-priority="-1"],
+    td[data-priority="-1"],
+    th[data-priority="0"],
+    td[data-priority="0"],
+    td[data-priority="1"],
+    td[data-priority="1"],
+    th[data-priority="2"],
+    td[data-priority="2"],
+    th[data-priority="3"],
+    td[data-priority="3"],
+    th[data-priority="4"],
+    td[data-priority="4"],
+    th[data-priority="5"],
+    td[data-priority="5"],
+    th[data-priority="6"],
+    td[data-priority="6"] {
+       display: none;
+    }
+
+    .lt-ie9& th[data-priority="1"], 
+    .lt-ie9& td[data-priority="1"] {
+        display: inline;
+    }
+    th[data-priority="1"], 
+    td[data-priority="1"] {
+        display: table-cell;
+    }
+
+    @media screen and (min-width: 480px) {
+        .lt-ie9& th[data-priority="2"], 
+        .lt-ie9& td[data-priority="2"] {
+            display: inline;
+        }
+        th[data-priority="2"], 
+        td[data-priority="2"] {
+            display: table-cell;
+        }
+    }
+
+    @media screen and (min-width: 640px) {
+        .lt-ie9& th[data-priority="3"], 
+        .lt-ie9& td[data-priority="3"] {
+            display: inline;
+        }
+        th[data-priority="3"], 
+        td[data-priority="3"] {
+            display: table-cell;
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        .lt-ie9& th[data-priority="4"], 
+        .lt-ie9& td[data-priority="4"] {
+            display: inline;
+        }
+        th[data-priority="4"], 
+        td[data-priority="4"] {
+            display: table-cell;
+        }
+    }
+
+    @media screen and (min-width: 960px) {
+        .lt-ie9& th[data-priority="5"], 
+        .lt-ie9& td[data-priority="5"] {
+            display: inline;
+        }
+        th[data-priority="5"], 
+        td[data-priority="5"] {
+            display: table-cell;
+        }
+    }
+
+    @media screen and (min-width: 1120px) {
+        .lt-ie9& th[data-priority="6"], 
+        .lt-ie9& td[data-priority="6"] {
+            display: inline;
+        }
+        th[data-priority="6"], 
+        td[data-priority="6"] {
+            display: table-cell;
+        }
+    }
+
+    //hide cell
+    th.cell-hide,
+    td.cell-hide {
+       display: none;
+    }
+
+    //show cell
+    th.cell-show,
+    td.cell-show {
+       display: table-cell;
+    }
+
+    //show cell (ie9)
+    .lt-ie9 & th.cell-show,
+    .lt-ie9 & td.cell-show {
+       display: inline;
+    }
+
+    // display all
+    .lt-ie9 &.display-all {
+        th, td {
+            display: inline !important;
+        }
+
+        th[data-priority="-1"],
+        td[data-priority="-1"] {
+          display: none !important;
+        }
+    }
+
+    table.display-all {
+        th, td {
+            display: table-cell !important;
+        }
+
+        th[data-priority="-1"],
+        td[data-priority="-1"] {
+          display: none !important;
+        }
+    }
+}
+
+//table utility classes
+table {
+
+    &.table-small-font {
+        font-size: 0.85rem;
+        -webkit-text-size-adjust: none;
+        line-height: var(--bs-body-line-height);
+    }
+
+    // focus
+    &.focus-on tbody,
+    &.focus-on tfoot {
+        tr:hover {
+            cursor: pointer;
+        }
+
+        tr {
+            &.unfocused {
+                th, td { 
+                    color: var(--bs-gray);
+                    opacity: 0.75;
+                }
+            }
+            &.focused {
+                th, td { 
+                    background-color: var(--bs-primary); 
+                    color: var(--bs-white);
+                    opacity: 1 !important;
+                }
+            }
+        }
+    }
+}
+
+//Sticky table header
+.sticky-table-header {
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  border-top: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+  border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+  visibility: hidden;
+  z-index: @zindex-stickyHeader;
+  overflow: hidden;
+
+  .fixed-solution & {
+      position: fixed;
+      min-width: 0;
+  }
+
+  .absolute-solution & {
+    position: absolute;
+    min-width: 100%;
+    top: 0;
+  }
+    
+  &.border-radius-fix {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+    
+  > .table {
+    margin-bottom: 0;
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        border-color: var(--bs-border-color);
+        
+        > th,
+        > td {
+          border-color: var(--bs-border-color);
+        }
+      }
+    }
+  }
+  
+  // Ensure the content doesn't wrap
+  > .table-tighten {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  // Special overrides for the bordered tables
+  > .table-bordered {
+    border: 0;
+
+    // Nuke the appropriate borders so that the parent can handle them
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+
+    // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+    // chances are there will be only one `tr` in a `thead` and that would
+    // remove the border altogether.
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > th,
+        > td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+  }
+}
