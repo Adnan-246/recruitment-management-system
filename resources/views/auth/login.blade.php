@@ -106,7 +106,7 @@
                     </div>
 
 
-                    <div class="col-md-6 col-xl-4" >
+                    {{-- <div class="col-md-6 col-xl-4" >
         
                         <div class="card mt-3 mx-5" style="left: 75%; right:0%;">
                          
@@ -130,7 +130,7 @@
                             </div>
                         </div>
 
-                    </div><!-- end col -->
+                    </div><!-- end col --> --}}
 
                    
                 
